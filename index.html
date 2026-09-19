@@ -1,237 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sparrow Wren | Live Loved</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  font-family:Georgia,serif;
-  background:#15110d;
-  color:white;
-}
-
-.hero{
-  position:relative;
-  height:100vh;
-}
-
-.hero img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(21,17,13,.95),
-    rgba(21,17,13,.55),
-    rgba(21,17,13,.15)
-  );
-}
-
-.content{
-  position:relative;
-  z-index:10;
-  padding:140px 8%;
-  max-width:650px;
-}
-
-.small{
-  color:#ef966f;
-  text-transform:uppercase;
-  letter-spacing:4px;
-  font-size:.8rem;
-}
-
-h1{
-  font-size:7rem;
-  line-height:.9;
-  margin:20px 0;
-}
-
-.orange{
-  color:#e17a50;
-}
-
-.tagline{
-  font-size:2rem;
-  color:#ef966f;
-  margin-top:20px;
-  font-style:italic;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 26px;
-  background:#bd532f;
-  color:white;
-  text-decoration:none;
-  margin-right:10px;
-}
-
-section{
-  padding:90px 8%;
-}
-
-.dark{
-  background:#211a14;
-}
-
-.blue{
-  background:#42617c;
-}
-
-h2{
-  font-size:3rem;
-  margin-bottom:20px;
-}
-
-.card{
-  background:rgba(255,255,255,.05);
-  padding:30px;
-  border-radius:10px;
-}
-
-input,textarea,select{
-  width:100%;
-  padding:14px;
-  margin-bottom:14px;
-  border:none;
-}
-
-button{
-  width:100%;
-  padding:16px;
-  border:none;
-  background:#bd532f;
-  color:white;
-  font-weight:bold;
-}
-
-footer{
-  background:black;
-  text-align:center;
-  padding:40px;
-}
-
-@media(max-width:768px){
-  h1{
-    font-size:4rem;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Sparrow Wren</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --fg: #e5e7eb;
+      --accent: #f97316;
+      --muted: #9ca3af;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      padding: 2.5rem 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    header p.tagline {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--fg);
+      border: 1px solid var(--muted);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    nav a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 2.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+    .story p {
+      margin: 0.4rem 0;
+    }
+    .music-list, .shows-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .music-item, .show-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #1f2937;
+    }
+    .music-item:last-child,
+    .show-item:last-child {
+      border-bottom: none;
+    }
+    .music-title {
+      font-weight: 600;
+    }
+    .music-meta, .show-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .audio-links a {
+      font-size: 0.85rem;
+      margin-right: 0.75rem;
+      text-decoration: none;
+      color: var(--accent);
+    }
+    .audio-links a:hover {
+      text-decoration: underline;
+    }
+    .booking-card {
+      border: 1px solid #1f2937;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      background: #020617;
+    }
+    .booking-card p {
+      margin: 0.4rem 0;
+    }
+    .booking-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .booking-email {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .booking-email a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .booking-email a:hover {
+      text-decoration: underline;
+    }
+    .booking-notes {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer {
+      max-width: 960px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <h1>Sparrow Wren</h1>
+    <p class="tagline">
+      Indie-folk textures, electric edges, and stories written for late nights, small rooms, and wide-open skies.
+    </p>
+    <nav>
+      <a href="#story">Story</a>
+      <a href="#music">Featured Music</a>
+      <a href="#shows">Upcoming Shows</a>
+      <a href="#booking">Bookings</a>
+    </nav>
+  </header>
 
-<section class="hero">
+  <main>
+    <div>
+      <!-- STORY -->
+      <section id="story" class="story">
+        <h2>Story</h2>
+        <p>
+          Sparrow Wren began as a handful of songs traded between friends after midnight—simple melodies on acoustic
+          guitars, lyrics scribbled in the margins of old notebooks, and a shared sense that music could still feel
+          honest and human.
+        </p>
+        <p>
+          Over time, those sketches grew into a full band: layered harmonies, dynamic drums, warm keys, and electric
+          lines that lift the folk roots into something bigger. The songs live in the space between quiet and loud,
+          built for rooms where you can still hear the stories.
+        </p>
+        <p>
+          Sparrow Wren plays to connection more than spectacle—inviting listeners into the narrative, whether it’s a
+          full stage, a small listening room, or a stripped-down house show.
+        </p>
+      </section>
 
-<img src="image.prn" alt="Sparrow" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      <!-- FEATURED MUSIC -->
+      <section id="music">
+        <h2>Featured Music</h2>
+        <ul class="music-list">
+          <li class="music-item">
+            <div class="music-title">“Northbound Lights”</div>
+            <div class="music-meta">Single · 2026 · Indie-folk / alt</div>
+            <div class="audio-links">
+              <a href="#spotify-northbound">Spotify</a>
+              <a href="#apple-northbound">Apple Music</a>
+              <a href="#bandcamp-northbound">Bandcamp</a>
+            </div>
+          </li>
+          <li class="music-item">
+            <div class="music-title">“Rooms We Remember”</div>
+            <div class="music-meta">EP · 2025 · Live-in-studio sessions</div>
+            <div class="audio-links">
+              <a href="#spotify-rooms">Spotify</a>
+              <a href="#apple-rooms">Apple Music</a>
+              <a href="#bandcamp-rooms">Bandcamp</a>
+            </div>
+          </li>
+          <li class="music-item">
+            <div class="music-title">“Paper Lanterns”</div>
+            <div class="music-meta">Upcoming · 2027 · Full-length album</div>
+            <div class="audio-links">
+              <a href="#mailing-list">Join the mailing list</a>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-<div class="overlay"></div>
+      <!-- UPCOMING SHOWS -->
+      <section id="shows">
+        <h2>Upcoming Shows</h2>
+        <ul class="shows-list">
+          <li class="show-item">
+            <div><strong>Oct 12 · Portland, OR</strong> — The Old Church</div>
+            <div class="show-meta">Full band · Doors 7:00 PM · All ages</div>
+          </li>
+          <li class="show-item">
+            <div><strong>Nov 3 · Seattle, WA</strong> — Sunset Tavern</div>
+            <div class="show-meta">With special guests · 21+</div>
+          </li>
+          <li class="show-item">
+            <div><strong>Dec 1 · Vancouver, WA</strong> — House show series</div>
+            <div class="show-meta">Intimate set · RSVP required</div>
+          </li>
+        </ul>
+      </section>
+    </div>
 
-<div class="content">
+    <!-- BOOKINGS / SIDEBAR -->
+    <aside id="booking">
+      <h2>Bookings</h2>
+      <div class="booking-card">
+        <p class="booking-label">Booking & inquiries</p>
+        <p class="booking-email">
+          <a href="mailto:booking@sparrowwrenmusic.com">booking@sparrowwrenmusic.com</a>
+        </p>
+        <p class="booking-notes">
+          For venues, festivals, and private events, please include:
+        </p>
+        <p class="booking-notes">
+          • City, venue, and proposed date<br>
+          • Set length and format (full band / acoustic)<br>
+          • Tech specs or stage plot requirements<br>
+          • Budget range and any additional details
+        </p>
+        <p>
+          Sparrow Wren is available for:
+        </p>
+        <p class="booking-notes">
+          • Listening rooms & theaters<br>
+          • Festivals & showcases<br>
+          • House shows & community events<br>
+          • Collaborative sets with other artists
+        </p>
+      </div>
+    </aside>
+  </main>
 
-<div class="small">
-ORIGINAL MUSIC • UNTAMED SPIRIT
-</div>
+  <footer>
+    <div>© <span id="year"></span> Sparrow Wren · All rights reserved.</div>
+    <div>
+      <span>Instagram · Bandcamp · Spotify</span>
+    </div>
+  </footer>
 
-<h1>
-Sparrow<br>
-<span class="orange">Wren</span>
-</h1>
-
-<p>
-Dust on the boots. Fire in the soul.
-Songs for anyone learning to live boldly,
-love deeply and refuse the cage.
-</p>
-
-<div class="tagline">
-Live Loved. Fly Wild.
-</div>
-
-#musicListen Now</a>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>The Story</h2>
-
-<p>
-Sparrow Wren blends rootsy warmth, fearless attitude
-and songs grounded in the belief that being loved
-is not something to earn.
-</p>
-
-</section>
-
-<section id="music" class="dark">
-
-<h2>Featured Music</h2>
-
-<div class="card">
-<h3>Live Loved</h3>
-
-<p>
-Add Spotify, Apple Music or Bandcamp here.
-</p>
-</div>
-
-</section>
-
-<section>
-
-<h2>Upcoming Shows</h2>
-
-<p>Portland, OR • Date TBA</p>
-<p>Seattle, WA • Date TBA</p>
-<p>Boise, ID • Date TBA</p>
-
-</section>
-
-<section class="blue">
-
-<h2>Booking & Contact</h2>
-
-<form>
-
-<input type="text" placeholder="Name">
-
-<input type="email" placeholder="Email">
-
-<select>
-<option>Booking Inquiry</option>
-<option>Press</option>
-<option>Collaboration</option>
-</select>
-
-<textarea rows="5" placeholder="Message"></textarea>
-
-<button type="submit">
-Send Message
-</button>
-
-</form>
-
-</section>
-
-<footer>
-<h3>Sparrow Wren</h3>
-<p>Live Loved • Fly Wild</p>
-</footer>
-
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
