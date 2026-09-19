@@ -12,46 +12,9 @@
       --fg: #e5e7eb;
       --accent: #f97316;
       --muted: #9ca3af;
-      /* Flying Sparrow Animation */
-.sparrow-container {
-  position: fixed;
-  top: 20%;
-  left: -150px; /* start off-screen */
-  width: 150px;
-  height: 150px;
-  pointer-events: none; /* don't block clicks */
-  animation: flyAcross 12s linear infinite;
-}
-
-.sparrow {
-  width: 100%;
-  height: 100%;
-  background-image: url('data:image/svg+xml;utf8,<svg width="150" height="150" xmlns="http://www.w3.org/2000/svg"><path d="M10 80 Q60 10 120 60 Q80 40 60 80 Q40 120 10 80 Z" fill="white"/></svg>');
-  background-size: contain;
-  background-repeat: no-repeat;
-  animation: flap 0.8s ease-in-out infinite;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.5));
-}
-
-@keyframes flyAcross {
-  0%   { transform: translateX(0) translateY(0); }
-  50%  { transform: translateX(120vw) translateY(-40px); }
-  100% { transform: translateX(0) translateY(0); }
-}
-
-@keyframes flap {
-  0%   { transform: scaleY(1); }
-  50%  { transform: scaleY(0.85); }
-  100% { transform: scaleY(1); }
-}
-
     }
 
     body {
-      <div class="sparrow-container">
-  <div class="sparrow"></div>
-</div>
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: url('Images/Sparrow.png') no-repeat center center fixed;
@@ -234,7 +197,7 @@
     <header>
       <h1>Sparrow Wren</h1>
       <p class="tagline">
-        Indie-folk textures, electric edges, and stories written for late nights, small rooms, and wide-open skies.
+        Indie‑folk with cinematic warmth, handwritten intimacy, and a visual identity built around flight, nature, and emotional storytelling.
       </p>
 
       <nav>
