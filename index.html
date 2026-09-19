@@ -35,12 +35,33 @@
       max-width: 960px;
       margin: 0 auto;
     }
-
+<!-- OLD HEADER 
     header h1 {
       font-size: 2.8rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin: 0;
+    } -->
+    
+/* FANCY + FLIGHTY + GLOW + FLOAT ANIMATION */
+    header h1 {
+      font-family: 'Great Vibes', cursive !important;
+      font-size: 5rem;
+      font-weight: normal;
+      letter-spacing: 0.03em;
+      margin: 0;
+      background: linear-gradient(180deg, #ffffff, #ffe8c8, #ffd7a1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(255,255,255,0.4), 0 0 22px rgba(255,200,150,0.3);
+
+      animation: floaty 6s ease-in-out infinite;
+    }
+
+    @keyframes floaty {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
     }
 
     header p.tagline {
